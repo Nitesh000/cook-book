@@ -27,10 +27,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 // use routes
 // app.use("/signup", require("./routes/signupRoute"));
 // app.use("/login", require("./routes/loginRoute"));

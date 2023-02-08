@@ -15,7 +15,9 @@ const Login = () => {
     <>
       <Header current="login" />
       <div className="flex flex-col mx-auto justify-center items-center w-1/2 bg-four mt-20 rounded-xl py-10">
-        <h2 className="text-two font-bold tracking-wider text-2xl">Login</h2>
+        <h2 className="text-two font-bold tracking-wider text-2xl hover:underline hover:decoration-two">
+          Login
+        </h2>
         <form
           className="flex flex-col items-center justify-center my-8"
           onSubmit={formSubmitHandler}
@@ -40,9 +42,12 @@ const Login = () => {
           >
             Login
           </button>
-          <p>
+          <p className="mt-4">
             Don't have an account!{" "}
-            <NavLink className="text-blue-400" to="/singin">
+            <NavLink
+              className="text-blue-400 hover:underline hover:decoration-blue-400"
+              to="/signin"
+            >
               click here
             </NavLink>
           </p>

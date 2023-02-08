@@ -10,7 +10,7 @@ const Button = ({ position }: Props) => {
     <button
       onClick={() => {
         if (position == "login") {
-          navigate("/singin");
+          navigate("/signin");
         } else {
           navigate("/login");
         }

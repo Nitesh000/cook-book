@@ -20,7 +20,7 @@ router.post("/", async (res, res) => {
   const token = jwt.sign({ _id: user._id }, PRIVATEKEY, {
     expiresIn: "1d",
   });
-  res.cookies("token", token, { httpOnly: true }).redirect(`/${user._id}`);
+  res.cookies("token", token, { httpOnly: true }).send({ id: user._id });
 });
 
 module.exports = router;

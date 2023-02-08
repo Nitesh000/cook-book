@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-one;
+  @apply bg-[#C0A172];
 }
 html {
   @apply scroll-smooth;

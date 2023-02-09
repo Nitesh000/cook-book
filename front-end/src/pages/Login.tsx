@@ -1,15 +1,27 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import LabelBox from "../components/LabelBox";
+import useSendReq from "../utils/useSendReq";
 import Header from "./Header";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const formSubmitHandler: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const navigate = useNavigate();
+  const formSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (
+    e
+  ) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
+    const inputs = {
+      email,
+      password,
+    };
+    const data = await useSendReq("http://localhost:3000/login", inputs);
+    if (data.status != 200) {
+      navigate("/login");
+    } else {
+      navigate(`/${data.data.id}`);
+    }
   };
   return (
     <>

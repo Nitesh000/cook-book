@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // use routes
 // app.use("/signup", require("./routes/signupRoute"));
-// app.use("/login", require("./routes/loginRoute"));
+app.use("/login", require("./routes/loginRoute"));
 // app.use("/dashboard", require("./routes/dashboardRoute"));
 
 app.listen(port, (err) => {

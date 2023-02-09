@@ -4,7 +4,7 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const PRIVATEKEY = "myprivatekey";
 
-router.post("/", async (res, res) => {
+router.post("/", async (req, res) => {
   const { email, password } = req.body;
   const user = await UserModal.findOne({ email });
   if (!user) {
@@ -20,7 +20,7 @@ router.post("/", async (res, res) => {
   const token = jwt.sign({ _id: user._id }, PRIVATEKEY, {
     expiresIn: "1d",
   });
-  res.cookies("token", token, { httpOnly: true }).send({ id: user._id });
+  res.cookie("token", token, { httpOnly: true }).send({ id: user._id });
 });
 
 module.exports = router;
